@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.red-box {
+  border: 2px solid red;
+  background-color: lightpink;
+  color: black;
+  width: 200px;
+  padding: 20px;
+}
+
+.yellow-button {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  padding: 20px;
+  border: 1px solid orange;
+}
+
+.student-list {
+  padding: 20px;
+  border: 1px solid orange;
+  margin: 10px auto;
+}
