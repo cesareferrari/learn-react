@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import StudentThree from './StudentThree';
+import Student from './Student';
 
 
 const students = [
@@ -29,9 +29,8 @@ const Students = () => {
     <div className="student-list">
       <h2>Students</h2>
 
-      <StudentThree student={students[0]} />
-      <StudentThree student={students[1]} />
-      <StudentThree student={students[2]} />
+      {students.map(student => <Student student={student} key={student.name} /> )}
+
     </div>
   )
 }
