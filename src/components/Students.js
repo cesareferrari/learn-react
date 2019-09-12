@@ -1,25 +1,25 @@
 import React from 'react';
 import '../index.css';
-import StudentTwo from './StudentTwo';
+import StudentThree from './StudentThree';
 
 
 const students = [
   {
     name: 'Carol',
     age: 20,
-    photo: '',
+    photo_url: 'https://randomuser.me/api/portraits/women/44.jpg',
     bestIn: 'Math'
   },
   {
     name: 'Alan',
     age: 22,
-    photo: '',
+    photo_url: 'https://randomuser.me/api/portraits/men/55.jpg',
     bestIn: 'English'
   },
   {
     name: 'Mary',
     age: 19,
-    photo: '',
+    photo_url: 'https://randomuser.me/api/portraits/women/66.jpg',
     bestIn: 'Math, Social studies'
   }
 ]
@@ -29,9 +29,9 @@ const Students = () => {
     <div className="student-list">
       <h2>Students</h2>
 
-      <StudentTwo student={students[0]} />
-      <StudentTwo student={students[1]} />
-      <StudentTwo student={students[2]} />
+      <StudentThree student={students[0]} />
+      <StudentThree student={students[1]} />
+      <StudentThree student={students[2]} />
     </div>
   )
 }

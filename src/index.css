@@ -33,3 +33,11 @@ code {
   border: 1px solid orange;
   margin: 10px auto;
 }
+
+.orange-box {
+  background-color: orange;
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+  margin-top: 10px;
+}

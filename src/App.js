@@ -5,6 +5,7 @@ import BasicButton from './components/BasicButton';
 import RedBox from './components/RedBox';
 import YellowButton from './components/YellowButton';
 import Students from './components/Students';
+import OrangeBox from './components/OrangeBox';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <YellowButton />
 
       <Students />
+
+      <OrangeBox text="Hello, world. I am orange" />
     </div>
   );
 }
