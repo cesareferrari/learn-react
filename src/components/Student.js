@@ -1,11 +1,12 @@
 import React from 'react';
+import StudentImage from './StudentImage';
 
 const StudentThree = props => {
   return (
-    <div>
+    <div className={props.className}>
     <h3>{props.student.name}</h3>
 
-    <img src={props.student.photo_url} />
+    <StudentImage photoUrl={props.student.photo_url} />
 
     <p>
       Age: {props.student.age}

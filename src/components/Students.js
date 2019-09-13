@@ -29,7 +29,10 @@ const Students = () => {
     <div className="student-list">
       <h2>Students</h2>
 
-      {students.map(student => <Student student={student} key={student.name} /> )}
+      {students.map(student => {
+        if (student.name === 'Alan') { return <Student className="alan" student={student} key={student.name} /> }
+        return <Student student={student} key={student.name} />
+      })}
 
     </div>
   )
