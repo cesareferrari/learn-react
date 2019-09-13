@@ -24,18 +24,37 @@ const students = [
   }
 ]
 
-const Students = () => {
-  return (
-    <div className="student-list">
-      <h2>Students</h2>
+class Students extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      myStudents: students
+    }
+  }
 
-      {students.map(student => {
-        if (student.name === 'Alan') { return <Student className="alan" student={student} key={student.name} /> }
-        return <Student student={student} key={student.name} />
-      })}
+  render() {
+    return (
+      <div className="student-list">
+        <h2>Students</h2>
 
-    </div>
-  )
+        {this.state.myStudents.map(student => {
+          if (student.name === 'Alan') { 
+            return (
+              <Student
+                className="alan"
+                student={student}
+                key={student.name}
+              />) }
+          return (
+            <Student
+              student={student}
+              key={student.name}
+            />) 
+        })}
+
+      </div>
+    )
+  }
 }
 
 export default Students;

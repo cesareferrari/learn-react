@@ -6,7 +6,10 @@ const StudentThree = props => {
     <div className={props.className}>
     <h3>{props.student.name}</h3>
 
-    <StudentImage photoUrl={props.student.photo_url} />
+    <StudentImage
+      photoUrl={props.student.photo_url}
+      alt={props.student.name}
+    />
 
     <p>
       Age: {props.student.age}
