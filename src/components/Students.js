@@ -7,19 +7,19 @@ const students = [
   {
     name: 'Carol',
     age: 20,
-    photo_url: 'https://randomuser.me/api/portraits/women/44.jpg',
+    photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
     bestIn: 'Math'
   },
   {
     name: 'Alan',
     age: 22,
-    photo_url: 'https://randomuser.me/api/portraits/men/55.jpg',
+    photoUrl: 'https://randomuser.me/api/portraits/men/55.jpg',
     bestIn: 'English'
   },
   {
     name: 'Mary',
     age: 19,
-    photo_url: 'https://randomuser.me/api/portraits/women/66.jpg',
+    photoUrl: 'https://randomuser.me/api/portraits/women/66.jpg',
     bestIn: 'Math, Social studies'
   }
 ]
@@ -29,15 +29,35 @@ class Students extends React.Component {
     super();
     this.state = {
       students,
-      name: ''
+      name: '',
+      age: null,
+      photoUrl: '',
+      bestIn: ''
     }
   }
 
-  changeHandler = e => {
-    // console.log(e); // prints out the Syntetic event generated when input changes
-   //  console.log(e.target); // prints out the event target, which is the input field.
-    console.log(e.target.value);
-    this.setState({ name: e.target.value });
+  changeHandler = event => {
+    // console.log(e);
+   //  console.log(e.target); 
+    console.log(event.target.value);
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  addStudentHandler = event => {
+    event.preventDefault();
+
+    let newStudent = {
+      name: this.state.name,
+      age: this.state.age,
+      photoUrl: this.state.photoUrl,
+      bestIn: this.state.bestIn
+    }
+
+    this.setState(
+      {
+        students: [...this.state.students, newStudent]
+      }
+    )
   }
 
   render() {
@@ -56,6 +76,7 @@ class Students extends React.Component {
         </div>
 
         <form>
+
           <input
             type="text"
             value={this.state.name}
@@ -63,6 +84,32 @@ class Students extends React.Component {
             name="name"
             onChange={this.changeHandler}
           />
+
+          <input
+            type="text"
+            value={this.state.age}
+            placeholder="age"
+            name="age"
+            onChange={this.changeHandler}
+          />
+
+          <input
+            type="text"
+            value={this.state.photoUrl}
+            placeholder="photo Url"
+            name="photoUrl"
+            onChange={this.changeHandler}
+          />
+
+          <input
+            type="text"
+            value={this.state.bestIn}
+            placeholder="best In"
+            name="bestIn"
+            onChange={this.changeHandler}
+          />
+
+        <button onClick={this.addStudentHandler}>Add Student</button>
         </form>
 
       </div>

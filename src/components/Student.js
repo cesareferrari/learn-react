@@ -7,7 +7,7 @@ const Student = props => {
     <h3>{props.student.name}</h3>
 
     <StudentImage
-      photoUrl={props.student.photo_url}
+      photoUrl={props.student.photoUrl}
       alt={props.student.name}
     />
 
