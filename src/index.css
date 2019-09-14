@@ -12,34 +12,22 @@ code {
     monospace;
 }
 
-.red-box {
-  border: 2px solid red;
-  background-color: lightpink;
-  color: black;
-  width: 200px;
-  padding: 20px;
-}
-
-.yellow-button {
-  background-color: gold;
-  color: black;
-  font-weight: bold;
-  padding: 20px;
-  border: 1px solid orange;
-}
 
 .student-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 20px;
   border: 1px solid orange;
   margin: 10px auto;
 }
 
-.orange-box {
-  background-color: orange;
-  padding: 10px;
-  width: 300px;
-  margin: auto;
-  margin-top: 10px;
+.student {
+  display: inline-block;
+  border: 1px solid green;
+  padding: 20px;
+  margin-bottom: 10px;
+  width: 150px;
 }
 
 .alan {

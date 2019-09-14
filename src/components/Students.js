@@ -28,29 +28,42 @@ class Students extends React.Component {
   constructor() {
     super();
     this.state = {
-      students
+      students,
+      name: ''
     }
+  }
+
+  changeHandler = e => {
+    // console.log(e); // prints out the Syntetic event generated when input changes
+   //  console.log(e.target); // prints out the event target, which is the input field.
+    console.log(e.target.value);
+    this.setState({ name: e.target.value });
   }
 
   render() {
     return (
-      <div className="student-list">
+      <div>
         <h2>Students</h2>
 
+        <div className="student-list">
         {this.state.students.map(student => {
-          if (student.name === 'Alan') { 
-            return (
-              <Student
-                className="alan"
-                student={student}
-                key={student.name}
-              />) }
           return (
             <Student
               student={student}
               key={student.name}
             />) 
         })}
+        </div>
+
+        <form>
+          <input
+            type="text"
+            value={this.state.name}
+            placeholder="name"
+            name="name"
+            onChange={this.changeHandler}
+          />
+        </form>
 
       </div>
     )

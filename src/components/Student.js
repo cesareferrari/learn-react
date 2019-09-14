@@ -1,9 +1,9 @@
 import React from 'react';
 import StudentImage from './StudentImage';
 
-const StudentThree = props => {
+const Student = props => {
   return (
-    <div className={props.className}>
+    <div className="student">
     <h3>{props.student.name}</h3>
 
     <StudentImage
@@ -21,4 +21,4 @@ const StudentThree = props => {
   )
 }
 
-export default StudentThree;
+export default Student;
