@@ -24,23 +24,21 @@ const students = [
   }
 ]
 
+
 class Students extends React.Component {
   constructor() {
     super();
     this.state = {
       students,
       name: '',
-      age: null,
       photoUrl: '',
+      age: '',
       bestIn: ''
     }
   }
 
   changeHandler = event => {
-    // console.log(e);
-   //  console.log(e.target); 
-    console.log(event.target.value);
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({[event.target.name]: event.target.value})
   }
 
   addStudentHandler = event => {
@@ -48,69 +46,62 @@ class Students extends React.Component {
 
     let newStudent = {
       name: this.state.name,
-      age: this.state.age,
       photoUrl: this.state.photoUrl,
-      bestIn: this.state.bestIn
+      age: this.state.age,
+      bestIn: this.state.bestIn,
     }
 
-    this.setState(
-      {
-        students: [...this.state.students, newStudent]
-      }
-    )
+    this.setState({
+      students: [...this.state.students, newStudent]
+    })
   }
 
   render() {
     return (
       <div>
-        <h2>Students</h2>
+      <div className="student-list">
+      {
+        this.state.students.map(student => {
+          return <Student student={student} key={student.name} />
+        })
+      }
+      </div>
 
-        <div className="student-list">
-        {this.state.students.map(student => {
-          return (
-            <Student
-              student={student}
-              key={student.name}
-            />) 
-        })}
-        </div>
+      <form>
+        <input 
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={this.state.name}
+          onChange={this.changeHandler}
+        />
 
-        <form>
+        <input 
+          type="text"
+          name="age"
+          placeholder="Age"
+          value={this.state.age}
+          onChange={this.changeHandler}
+        />
 
-          <input
-            type="text"
-            value={this.state.name}
-            placeholder="name"
-            name="name"
-            onChange={this.changeHandler}
-          />
+        <input 
+          type="text"
+          name="photoUrl"
+          placeholder="Photo"
+          value={this.state.photoUrl}
+          onChange={this.changeHandler}
+        />
 
-          <input
-            type="text"
-            value={this.state.age}
-            placeholder="age"
-            name="age"
-            onChange={this.changeHandler}
-          />
-
-          <input
-            type="text"
-            value={this.state.photoUrl}
-            placeholder="photo Url"
-            name="photoUrl"
-            onChange={this.changeHandler}
-          />
-
-          <input
-            type="text"
-            value={this.state.bestIn}
-            placeholder="best In"
-            name="bestIn"
-            onChange={this.changeHandler}
-          />
+        <input 
+          type="text"
+          name="bestIn"
+          placeholder="Best in"
+          value={this.state.bestIn}
+          onChange={this.changeHandler}
+        />
 
         <button onClick={this.addStudentHandler}>Add Student</button>
-        </form>
+      </form>
 
       </div>
     )
