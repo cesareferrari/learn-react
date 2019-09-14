@@ -28,7 +28,7 @@ class Students extends React.Component {
   constructor() {
     super();
     this.state = {
-      myStudents: students
+      students
     }
   }
 
@@ -37,7 +37,7 @@ class Students extends React.Component {
       <div className="student-list">
         <h2>Students</h2>
 
-        {this.state.myStudents.map(student => {
+        {this.state.students.map(student => {
           if (student.name === 'Alan') { 
             return (
               <Student
