@@ -1,7 +1,6 @@
 import React from 'react';
 import '../index.css';
 import Student from './Student';
-import StudentForm from './StudentForm';
 
 
 const students = [
@@ -32,8 +31,8 @@ class Students extends React.Component {
     this.state = {
       students,
       name: '',
-      photoUrl: '',
       age: '',
+      photoUrl: '',
       bestIn: ''
     }
   }
@@ -47,19 +46,24 @@ class Students extends React.Component {
 
     let newStudent = {
       name: this.state.name,
-      photoUrl: this.state.photoUrl,
       age: this.state.age,
-      bestIn: this.state.bestIn,
+      photoUrl: this.state.photoUrl,
+      bestIn: this.state.bestIn 
     }
 
     this.setState({
-      students: [...this.state.students, newStudent]
+      students: [...this.state.students, newStudent],
+      name: '',
+      age: '',
+      photoUrl: '',
+      bestIn: ''
     })
   }
 
   render() {
     return (
       <div>
+
       <div className="student-list">
       {
         this.state.students.map(student => {
@@ -67,19 +71,49 @@ class Students extends React.Component {
         })
       }
       </div>
-      <StudentForm
-        addStudentHandler={this.addStudentHandler}
-        changeHandler={this.changeHandler}
-        name={this.state.name}
-        age={this.state.age}
-        photoUrl={this.state.photoUrl}
-        bestIn={this.state.bestIn}
-      />
+
+      <form>
+
+        <input
+          type="text"
+          name="name"
+          value={this.state.name}
+          placeholder="Name"
+          onChange={this.changeHandler}
+        />
+
+        <input
+          type="text"
+          name="age"
+          value={this.state.age}
+          placeholder="age"
+          onChange={this.changeHandler}
+        />
+
+        <input
+          type="text"
+          name="photoUrl"
+          value={this.state.photoUrl}
+          placeholder="Photo"
+          onChange={this.changeHandler}
+        />
+
+        <input
+          type="text"
+          name="bestIn"
+          value={this.state.bestIn}
+          placeholder="Likes"
+          onChange={this.changeHandler}
+        />
+
+        <button onClick={this.addStudentHandler}>Add student</button>
+      </form>
 
 
       </div>
     )
   }
 }
+
 
 export default Students;
