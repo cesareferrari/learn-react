@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import Student from './Student';
+import Form from './Form';
 
 
 const students = [
@@ -38,7 +39,7 @@ class Students extends React.Component {
   }
 
   changeHandler = event => {
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({[event.target.name]: event.target.value});
   }
 
   addStudentHandler = event => {
@@ -48,7 +49,7 @@ class Students extends React.Component {
       name: this.state.name,
       age: this.state.age,
       photoUrl: this.state.photoUrl,
-      bestIn: this.state.bestIn 
+      bestIn: this.state.bestIn
     }
 
     this.setState({
@@ -63,52 +64,22 @@ class Students extends React.Component {
   render() {
     return (
       <div>
+        <h2>All students</h2>
 
-      <div className="student-list">
-      {
-        this.state.students.map(student => {
-          return <Student student={student} key={student.name} />
-        })
-      }
-      </div>
+        <div className="student-list">
+          {this.state.students.map(student => {
+            return <Student student={student} key={student.name} />
+          })}
+        </div>
 
-      <form>
-
-        <input
-          type="text"
-          name="name"
-          value={this.state.name}
-          placeholder="Name"
-          onChange={this.changeHandler}
-        />
-
-        <input
-          type="text"
-          name="age"
-          value={this.state.age}
-          placeholder="age"
-          onChange={this.changeHandler}
-        />
-
-        <input
-          type="text"
-          name="photoUrl"
-          value={this.state.photoUrl}
-          placeholder="Photo"
-          onChange={this.changeHandler}
-        />
-
-        <input
-          type="text"
-          name="bestIn"
-          value={this.state.bestIn}
-          placeholder="Likes"
-          onChange={this.changeHandler}
-        />
-
-        <button onClick={this.addStudentHandler}>Add student</button>
-      </form>
-
+      <Form
+        name={this.state.name}
+        age={this.state.age}
+        photoUrl={this.state.photoUrl}
+        bestIn={this.state.bestIn}
+        changeHandler={this.changeHandler}
+        addStudentHandler={this.addStudentHandler}
+      />
 
       </div>
     )
