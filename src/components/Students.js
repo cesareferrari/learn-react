@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import Student from './Student';
+import StudentForm from './StudentForm';
 
 
 const students = [
@@ -66,42 +67,15 @@ class Students extends React.Component {
         })
       }
       </div>
+      <StudentForm
+        addStudentHandler={this.addStudentHandler}
+        changeHandler={this.changeHandler}
+        name={this.state.name}
+        age={this.state.age}
+        photoUrl={this.state.photoUrl}
+        bestIn={this.state.bestIn}
+      />
 
-      <form>
-        <input 
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={this.state.name}
-          onChange={this.changeHandler}
-        />
-
-        <input 
-          type="text"
-          name="age"
-          placeholder="Age"
-          value={this.state.age}
-          onChange={this.changeHandler}
-        />
-
-        <input 
-          type="text"
-          name="photoUrl"
-          placeholder="Photo"
-          value={this.state.photoUrl}
-          onChange={this.changeHandler}
-        />
-
-        <input 
-          type="text"
-          name="bestIn"
-          placeholder="Best in"
-          value={this.state.bestIn}
-          onChange={this.changeHandler}
-        />
-
-        <button onClick={this.addStudentHandler}>Add Student</button>
-      </form>
 
       </div>
     )
