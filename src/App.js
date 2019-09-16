@@ -1,15 +1,47 @@
 import React from 'react';
 import './App.css';
+import GroceryList from './components/GroceryList';
 
-import Students from './components/Students';
+const groceries = [
+  {
+    id: 1,
+    name: "bananas",
+    purchased: false
+  },
+  {
+    id: 2,
+    name: "apples",
+    purchased: true
+  },
+  {
+    id: 3,
+    name: "milk",
+    purchased: false
+  },
+  {
+    id: 4,
+    name: "cheese",
+    purchased: true
+  },
+]
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Students</h1>
-      <Students />
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      groceries
+    }
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <h1>Shopping list</h1>
+        <GroceryList groceries={this.state.groceries} />
+      </div>
+    );
+  }
 }
 
 export default App;
