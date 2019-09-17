@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 import Student from './Student';
-import StudentForm from './StudentForm';
+import Form from './Form';
 
 
 const students = [
@@ -32,14 +32,14 @@ class Students extends React.Component {
     this.state = {
       students,
       name: '',
-      photoUrl: '',
       age: '',
+      photoUrl: '',
       bestIn: ''
     }
   }
 
   changeHandler = event => {
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({[event.target.name]: event.target.value});
   }
 
   addStudentHandler = event => {
@@ -47,39 +47,44 @@ class Students extends React.Component {
 
     let newStudent = {
       name: this.state.name,
-      photoUrl: this.state.photoUrl,
       age: this.state.age,
-      bestIn: this.state.bestIn,
+      photoUrl: this.state.photoUrl,
+      bestIn: this.state.bestIn
     }
 
     this.setState({
-      students: [...this.state.students, newStudent]
+      students: [...this.state.students, newStudent],
+      name: '',
+      age: '',
+      photoUrl: '',
+      bestIn: ''
     })
   }
 
   render() {
     return (
       <div>
-      <div className="student-list">
-      {
-        this.state.students.map(student => {
-          return <Student student={student} key={student.name} />
-        })
-      }
-      </div>
-      <StudentForm
-        addStudentHandler={this.addStudentHandler}
-        changeHandler={this.changeHandler}
+        <h2>All students</h2>
+
+        <div className="student-list">
+          {this.state.students.map(student => {
+            return <Student student={student} key={student.name} />
+          })}
+        </div>
+
+      <Form
         name={this.state.name}
         age={this.state.age}
         photoUrl={this.state.photoUrl}
         bestIn={this.state.bestIn}
+        changeHandler={this.changeHandler}
+        addStudentHandler={this.addStudentHandler}
       />
-
 
       </div>
     )
   }
 }
+
 
 export default Students;
