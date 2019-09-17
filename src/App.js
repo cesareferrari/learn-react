@@ -34,11 +34,27 @@ class App extends React.Component {
     }
   }
 
+  toggleItem = itemId => {
+    console.log("itemId: ", itemId);
+    this.setState({
+      groceries: this.state.groceries.map(item => {
+        if (itemId === item.id) {
+          return { ...item, purchased: !item.purchased }
+        }
+
+        return item;
+      })
+    });
+  }
+
   render () {
     return (
       <div className="App">
         <h1>Shopping list</h1>
-        <GroceryList groceries={this.state.groceries} />
+        <GroceryList
+          groceries={this.state.groceries}
+          toggleItem={this.toggleItem}
+        />
       </div>
     );
   }

@@ -60,3 +60,7 @@ form button {
   display: block;
   margin: 20px auto;
 }
+
+.purchased {
+  text-decoration: line-through;
+}
