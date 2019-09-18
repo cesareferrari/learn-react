@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import TodoForm from './TodoForm';
+
 
 const todos = [
   {
@@ -45,11 +47,26 @@ class TodoList extends React.Component {
     })
   }
 
+  addTodo = todo => {
+    const newTodo = {
+      id: Date.now(),
+      name: todo,
+      done: false
+    }
+
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
+  }
+
   render() {
     return (
       <div className="todo-list">
         <h1>Todo List</h1>
         {this.state.todos.map(todo => <TodoItem todo={todo} key={todo.id} toggleTodo={this.toggleTodo} />)}
+
+      <TodoForm addTodo={this.addTodo} />
+
       </div>
     )
   }
