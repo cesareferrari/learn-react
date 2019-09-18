@@ -64,3 +64,35 @@ form button {
 .purchased {
   text-decoration: line-through;
 }
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 60%;
+  margin: 1rem auto;
+}
+
+.todo-item {
+  padding: 6px 12px;
+  border: 1px solid #929c91;
+  border-radius: 6px;
+  background-color: #e9f0e9;
+  margin-bottom: .6rem;
+}
+
+.todo-item:hover {
+  background-color: #d5ded5;
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+  background-color: #f7fcf7;
+}
+
+.done:hover {
+  background-color: #e9f0e9;
+}
