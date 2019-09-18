@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GroceryList from './components/GroceryList';
+import Form from './components/Form';
 
 const groceries = [
   {
@@ -47,6 +48,26 @@ class App extends React.Component {
     });
   }
 
+  addItem = (event, item) => {
+    event.preventDefault();
+    const newItem = {
+      name: item,
+      id: Date.now(),
+      purchased: false
+    }
+
+    this.setState({
+      groceries: [...this.state.groceries, newItem]
+    })
+  }
+
+  clearPurchased = event => {
+    event.preventDefault();
+    this.setState({
+      groceries: this.state.groceries.filter(item => !item.purchased)
+    })
+  }
+
   render () {
     return (
       <div className="App">
@@ -54,7 +75,10 @@ class App extends React.Component {
         <GroceryList
           groceries={this.state.groceries}
           toggleItem={this.toggleItem}
+          clearPurchased={this.clearPurchased}
         />
+
+        <Form addItem={this.addItem} />
       </div>
     );
   }
