@@ -2,29 +2,7 @@ import React from 'react';
 import './App.css';
 import GroceryList from './components/GroceryList';
 import Form from './components/Form';
-
-const todos = [
-  {
-    id: 1,
-    name: "Paint my room",
-    done: false
-  },
-  {
-    id: 2,
-    name: "Repair computer",
-    done: false
-  },
-  {
-    id: 3,
-    name: "Go to the mall",
-    done: false
-  },
-  {
-    id: 4,
-    name: "Take out garbage",
-    done: false
-  },
-]
+import TodoList from './components/TodoList';
 
 const groceries = [
   {
@@ -102,6 +80,12 @@ class App extends React.Component {
         />
 
         <Form addItem={this.addItem} />
+
+
+
+      <TodoList todos={this.state.todos} />
+
+
       </div>
     );
   }
