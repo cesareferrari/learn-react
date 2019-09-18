@@ -143,3 +143,11 @@ In effect we are toggling the property.
     });
   }
 ```
+
+
+## Comments in JSX
+
+Here's how to comment in JSX: User regular Javascript comments /* */ but include them
+in curly braces.
+
+    { /* <button onClick={(event) => { props.clearPurchased(event) }} > */ }

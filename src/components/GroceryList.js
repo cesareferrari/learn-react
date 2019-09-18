@@ -18,7 +18,7 @@ const GroceryList = props => {
     }
 
 
-    // <button onClick={(event) => { props.clearPurchased(event) }}>
+    { /* <button onClick={(event) => { props.clearPurchased(event) }} > */ }
 
 
     <button onClick={props.clearPurchased}>
