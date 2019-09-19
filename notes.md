@@ -2,7 +2,7 @@
 
 ## Video
 
-[ Class components 2 - 1:16:44 ]
+[ React Tooling - 59:06 ]
 
 
 
@@ -151,3 +151,15 @@ Here's how to comment in JSX: User regular Javascript comments /* */ but include
 in curly braces.
 
     { /* <button onClick={(event) => { props.clearPurchased(event) }} > */ }
+
+
+
+
+## PropTypes
+
+
+PropTypes lets us specify what types are accepted inside a component when props
+are passed to it.
+
+It prevents bugs by validating data types, since Javascript is not a strongly
+typed language.
