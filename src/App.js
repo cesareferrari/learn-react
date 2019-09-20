@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import GroceryList from './components/GroceryList';
 import Form from './components/Form';
+import Users from './components/Users';
 import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
 import pokemons from './pokemons.js'
@@ -75,6 +76,9 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
+
+        <Users />
+
         <h1>Shopping list</h1>
         <GroceryList
           groceries={this.state.groceries}
