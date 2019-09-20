@@ -3,7 +3,7 @@
 ## Video
 
 React Lifecycle w/ Brian Kirkby
-https://youtu.be/3CfA9CKeQWA?t=3
+https://youtu.be/3CfA9CKeQWA?t=420
 
 
 
