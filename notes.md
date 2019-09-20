@@ -2,7 +2,11 @@
 
 ## Video
 
-[ React Tooling - 59:06 ]
+React Lifecycle w/ Brian Kirkby
+https://youtu.be/3CfA9CKeQWA?t=3
+
+
+
 
 
 
@@ -235,3 +239,17 @@ Pokemon.propTypes = {
   })
 }
 ```
+
+We can also specify if a property is required in the props object by adding
+isRequired at the end, like so:
+
+
+```
+Pokemon.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number.isRequired  // required property
+  })
+}
+```
+
