@@ -17,10 +17,10 @@ const Pokemon = props => {
 
 Pokemon.propTypes = {
   pokemon: PropTypes.shape({
-    name: PropTypes.string,
-    id: PropTypes.number,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     base_stamina: PropTypes.number,
-    base_defense: PropTypes.number
+    base_defense: PropTypes.number,
   })
 }
 
