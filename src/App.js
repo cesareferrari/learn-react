@@ -3,7 +3,8 @@ import './App.css';
 import GroceryList from './components/GroceryList';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
-import Pokemon from './components/Pokemon';
+import Pokemons from './components/Pokemons';
+import pokemons from './pokemons.js'
 
 const groceries = [
   {
@@ -33,7 +34,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      groceries
+      groceries,
+      pokemons
     }
   }
 
@@ -87,7 +89,7 @@ class App extends React.Component {
       <TodoList todos={this.state.todos} />
 
 
-      <Pokemon />
+      <Pokemons pokemons={this.state.pokemons} />
 
       </div>
     );

@@ -157,9 +157,81 @@ in curly braces.
 
 ## PropTypes
 
+Javascript is not a strongly typed language. Javascript functions are happy
+to accept data of different types than what we expected when we declared the function.
+For example, we can pass a number to a function that expects a string. What
+Javascript will do is try to convert the number into a string and go on to the next
+operation.
 
-PropTypes lets us specify what types are accepted inside a component when props
-are passed to it.
+This may be what we want, but it may also lead to bugs and errors in the code
+when the operations performed on a piece of data are not what we thought we were
+doing because the data passed in is of a different type.
 
-It prevents bugs by validating data types, since Javascript is not a strongly
-typed language.
+PropTypes is a technology that tries to minimize this problem in React by
+checking the types passed in the props object against a specification we set
+beforehand and to raise a warning if the types passed don't match the types expected.
+
+To use PropTypes we need to import the library at the top of the component where
+we want to use it, like so:
+
+```
+import PropTypes from 'prop-types';
+```
+
+Next, we call the propTypes property on our component and pass it an object that
+specifies the props object expected types.
+
+For example, we may have a Pokemons component that is passed an array of
+pokemons objects. Since we know that pokemons must be an array, we can use
+PropTypes to enforce this type.
+
+At the bottom of our component file, we add this code:
+
+```
+Pokemons.propTypes = {
+  pokemons: PropTypes.array
+}
+```
+
+Now if we passed pokemons as a different type we would get a warning in the
+Javascript console in our browser.
+
+To learn more about PropTypes you can check out the documentation here:
+
+Typechecking With PropTypes
+
+https://reactjs.org/docs/typechecking-with-proptypes.html
+
+
+Checking that the pokemons prop is indeed an array is helpful, but PropTypes
+goes deeper. It can check the content of the array and make sure it's an
+expected type.
+
+pokemons is expected to be an array of objects, so we can check that all
+elements of the array are objects with this syntax:
+
+```
+Pokemons.propTypes = {
+  pokemons: PropTypes.arrayOf(PropTypes.object)
+}
+```
+
+If one of the elements is not an object, PropTypes would give us a warning in
+the console.
+
+
+PropTypes lets us go further and describe the shape of an object, that is the
+inner structure of an object, so our data is validated more thoroughly.
+We do that with the shape() method of PropTypes.
+shape() takes an object and validates the types inside the object.
+
+```
+Pokemon.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+    base_stamina: PropTypes.number,
+    base_defense: PropTypes.number
+  })
+}
+```
