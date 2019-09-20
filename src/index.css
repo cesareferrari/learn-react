@@ -96,3 +96,17 @@ form button {
 .done:hover {
   background-color: #e9f0e9;
 }
+
+.user-list {
+  border-bottom: 1px solid gray;
+  margin-bottom: 4rem;
+}
+
+.user {
+  margin-bottom: 1rem;
+}
+
+.user span {
+  display: inline-block;
+  margin: 0 1rem;
+}
