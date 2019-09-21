@@ -1,4 +1,4 @@
-const pokemon = [
+const pokemonData = [
     {
         base_stamina: 90,
         base_defense: 118,
@@ -22,4 +22,4 @@ const pokemon = [
     }
 ]
 
-export default pokemon;
+export default pokemonData;

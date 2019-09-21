@@ -5,7 +5,6 @@ import Form from './components/Form';
 import Users from './components/Users';
 import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
-import pokemons from './pokemons.js'
 
 const groceries = [
   {
@@ -35,8 +34,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      groceries,
-      pokemons
+      groceries
     }
   }
 
@@ -93,7 +91,7 @@ class App extends React.Component {
       <TodoList todos={this.state.todos} />
 
 
-      <Pokemons pokemons={this.state.pokemons} />
+      <Pokemons />
 
       </div>
     );

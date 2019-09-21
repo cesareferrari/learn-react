@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Pokemon = props => {
+  console.log('Pokemon render called.')
   return (
     <div>
       Id: {props.pokemon.id}

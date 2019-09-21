@@ -3,7 +3,7 @@
 ## Video
 
 React Lifecycle w/ Brian Kirkby
-https://youtu.be/3CfA9CKeQWA?t=420
+https://youtu.be/3CfA9CKeQWA?t=2686
 
 
 
@@ -253,3 +253,58 @@ Pokemon.propTypes = {
 }
 ```
 
+## React lifecycle methods
+
+componentDidMount is placed inside a class component. It can't be placed inside
+a functional component because a functional component only renders JSX and does
+nothing else. 
+
+componentDidMount is run after the component has been rendered on the page.
+It is the place where we usually fetch the data from an external data source.
+
+In the constructor we initialize the state to something empty, then we fetch the
+data inside componentDidMount, once the component has been rendered.
+
+
+```
+  constructor() {
+    console.log('Pokemons constructor called.')
+    super();
+
+    this.state = {
+      pokemons: [] 
+    }
+  }
+```
+
+componentDidMount looks like this: we set the state from the data (imagine
+pokemonData is what is returned by the external API call.
+
+```
+  componentDidMount() {
+    this.setState({pokemons: pokemonData})
+  }
+```
+
+The next lifecycle method that is called is componentDidUpdate().
+componentDidUpdate takes two arguments: the previous state and the new state.
+Inside the method we can do something if some condition is met.
+For example, here we check if the previous state and the new state are
+different. Since they are, the console log will be run.
+
+```
+  componentDidUpdate(prevState, newState) {
+    if (prevState.pokemons !== newState.pokemons) {
+      console.log('pokemons state has changed.')
+    }
+  }
+```
+
+Note that if you call setState inside componentDidUpdate you need to do it
+inside an if condition, because otherwise setState would be called recursively
+every time componentDidUpdate is called, and create an infinite loop.
+
+An example of when to use componentDidMount is to call an external API if the
+previous state and the new state are different. If not, it's not necessary to
+call the API. The call of the API would be inside a condition that checks if the
+two states have changed.
