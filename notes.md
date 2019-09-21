@@ -3,7 +3,7 @@
 ## Video
 
 React Lifecycle w/ Brian Kirkby
-https://youtu.be/3CfA9CKeQWA?t=2686
+https://youtu.be/3CfA9CKeQWA?t=5160
 
 
 
@@ -287,24 +287,64 @@ pokemonData is what is returned by the external API call.
 ```
 
 The next lifecycle method that is called is componentDidUpdate().
-componentDidUpdate takes two arguments: the previous state and the new state.
+componentDidUpdate takes as the first two arguments the previous props and the previous state.
 Inside the method we can do something if some condition is met.
-For example, here we check if the previous state and the new state are
-different. Since they are, the console log will be run.
+For example, here we check if the previous state and the current state are
+different. Since they are, the console log statement will be run.
 
 ```
-  componentDidUpdate(prevState, newState) {
-    if (prevState.pokemons !== newState.pokemons) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.pokemons !== this.state.pokemons) {
       console.log('pokemons state has changed.')
     }
   }
 ```
 
 Note that if you call setState inside componentDidUpdate you need to do it
-inside an if condition, because otherwise setState would be called recursively
-every time componentDidUpdate is called, and create an infinite loop.
+inside of an if condition, because otherwise setState() would be called recursively
+every time componentDidUpdate() is called, and create an infinite loop.
 
-An example of when to use componentDidMount is to call an external API if the
+An example of when to use componentDidUpdate() is to call an external API if the
 previous state and the new state are different. If not, it's not necessary to
 call the API. The call of the API would be inside a condition that checks if the
 two states have changed.
+
+
+
+## Fetching from external API
+
+If we don't have props on a class component, and we only need to set the state,
+we can omit the constructor in the class.
+We just add state as a variable on the class and it will be set correctly.
+
+```
+class Dogs extends React.Component {
+  state = {
+    dogs: [],
+    dogText: ''
+  }
+  ...
+}
+```
+
+Typically, the state is initialized and set to empty values, and then in 
+componentDidMount() we fetch external API data and update the state with the
+initial real data. In this example we use the fetch() method to retrieve images.
+fetch() works asyncronously.
+After we get the data we convert the response to json and in the next .then call
+we set the state with what is returned. We also print out a message on the
+console to see the first element that is returned.
+If there are errors, we print out an error in the catch call.
+
+```
+componentDidMount() {
+  console.log('Dogs CDM called')
+  fetch('https://dog.ceo/api/breed/husky/images')
+    .then(res => res.json())
+    .then(dogs => {
+      this.setState({dogs: dogs.message});
+      console.log(this.state.dogs[0]);
+    })
+    .catch(err => console.log('Error:', err));
+}
+```
