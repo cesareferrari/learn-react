@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 class Pokemons extends React.Component {
   constructor() {
-    console.log('Pokemons constructor called.')
     super();
 
     this.state = {
@@ -15,21 +14,16 @@ class Pokemons extends React.Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount called.');
     this.setState({pokemons: pokemonData});
   }
 
-  componentDidUpdate(prevState, newState) {
-    console.log('componentDidUpdate called.');
-
-    if (prevState.pokemons !== newState.pokemons) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.pokemons !== this.state.pokemons) {
       console.log('pokemons state has changed.')
     }
   }
 
   render() {
-    console.log('render called.');
-
     return (
       <div>
         <h1>Pokemon</h1>

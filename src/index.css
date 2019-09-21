@@ -110,3 +110,17 @@ form button {
   display: inline-block;
   margin: 0 1rem;
 }
+
+.dog-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dog {
+  width: 150px;
+  margin: 5px;
+}
+
+.dog img {
+  width: 100%;
+}

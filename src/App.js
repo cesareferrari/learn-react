@@ -5,6 +5,7 @@ import Form from './components/Form';
 import Users from './components/Users';
 import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
+import Dogs from './components/Dogs';
 
 const groceries = [
   {
@@ -74,6 +75,8 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
+
+        <Dogs />
 
         <Users />
 
