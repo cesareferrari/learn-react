@@ -2,10 +2,9 @@
 
 ## Video
 
-React Composition Patterns w/ Brian Kirkby
- 
-https://www.youtube.com/watch?v=e298MYkDhuY&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=22&t=0s
+CSS in JS w/ Brian Kirkby
 
+https://www.youtube.com/watch?v=0ZD0c0mdz9s&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=22
 
 
 
@@ -349,3 +348,59 @@ componentDidMount() {
     .catch(err => console.log('Error:', err));
 }
 ```
+
+
+
+## Higher order components and currying
+
+A higher order component allows us to take in a component, add some
+functionality to it and return it changed.
+
+The concept of higher order component is based on the concept of currying or
+partially applied functions.
+
+Here's an example of currying. We define a function called multiply that takes
+one argument, x.
+This function returns another anonymous function that takes one argument, y.
+
+When we call the multiply function with the argument of 3, we obtain a function
+that ultimately returns 3 * y.
+
+Our multiply(3) function is a function that takes one argument and
+multiplies it by 3.
+
+If we assign multiply(3) to an identifier called multiplyByThree, this will
+return a multiplyByThree function that takes an argument and multiplies it by 3.
+
+```
+function multiply(x) {
+  return function(y) {
+    return x * y
+  }
+}
+
+let multiplyByThree = multiply(3);
+
+console.log(multiplyByThree(6));  // 18
+console.log(multiplyByThree(4));  // 12
+```
+
+We can use arrow function syntax to make function definition shorter, although
+it may be a little more difficult to understand. The code below is the same as
+the code above:
+
+
+```
+let multiply = x => y => x * y;
+```
+
+We can also call the multiply function directly without creating an intermediate
+function.
+In the code below we invoke multiply passing 2 and then we invoke the resulting function passing 10.
+The final result is 2 * 10 = 20
+
+```
+multiply(2)(10)  // 20
+```
+
+
