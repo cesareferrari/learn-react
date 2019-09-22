@@ -404,3 +404,43 @@ multiply(2)(10)  // 20
 ```
 
 
+
+
+## ReactStrap, css in JS
+
+
+https://reactstrap.github.io
+
+ReactStrap is a way to add Bootstrap styling in a React application.
+
+Install ReactStrap  and Bootstrap with the command below. Note that Reactstrap
+does not include Bootstrap, so we need to install both in our project.
+
+```
+npm install --save reactstrap
+npm install --save bootstrap
+```
+
+Include Bootstrap in index.js file:
+
+```
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+At this point, Reactstrap is ready to use. We import the Reactstrap components we want in the components we need them with this syntax:
+
+
+```
+import { Button, Alert } from 'reactstrap';
+```
+
+And we use components like normal
+
+```
+<Button color="primary">Default button</Button>
+```
+
+See the documentation for all the options.
+
+
+

@@ -5,7 +5,8 @@ import Form from './components/Form';
 import Users from './components/Users';
 import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
-import Dogs from './components/Dogs';
+// import Dogs from './components/Dogs';
+import Styling from './components/Styling';
 
 const groceries = [
   {
@@ -76,7 +77,9 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <Dogs />
+      {  /* <Dogs /> */ }
+
+        <Styling />
 
         <Users />
 
