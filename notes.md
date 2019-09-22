@@ -2,8 +2,9 @@
 
 ## Video
 
-React Lifecycle w/ Brian Kirkby
-https://youtu.be/3CfA9CKeQWA?t=5799
+React Composition Patterns w/ Brian Kirkby
+ 
+https://www.youtube.com/watch?v=e298MYkDhuY&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=22&t=0s
 
 
 

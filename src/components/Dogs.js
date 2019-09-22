@@ -13,7 +13,6 @@ class Dogs extends React.Component {
       .then(res => res.json())
       .then(dogs => {
         this.setState({dogs: dogs.message});
-        console.log(this.state.dogs[0]);
       })
       .catch(err => console.log('Error:', err));
   }
@@ -38,10 +37,36 @@ class Dogs extends React.Component {
     }
   }
 
+  handleChanges = e => {
+    this.setState({dogText: e.target.value})
+  }
+
+  handleFetch = e => {
+    e.preventDefault();
+
+    fetch(`https://dog.ceo/api/breed/${this.state.dogText}/images`)
+      .then(res => res.json())
+      .then(dogs => {
+        this.setState({dogs: dogs.message});
+      })
+      .catch(err => console.log('Error:', err));
+  }
+
   render() {
     return (
       <div>
         <h1>Dogs</h1>
+
+      <form>
+        <input
+          type="text"
+          value={this.state.dogText}
+          onChange={this.handleChanges}
+        />
+
+      <button onClick={this.handleFetch}>Fetch</button>
+      </form>
+
         <div className="dog-list">
           { this.state.dogs.map(dog => <Dog dog={dog} key={dog} />) }
         </div>
