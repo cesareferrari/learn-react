@@ -4,7 +4,7 @@
 
 CSS in JS w/ Brian Kirkby
 
-https://www.youtube.com/watch?v=0ZD0c0mdz9s&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=22
+https://youtu.be/0ZD0c0mdz9s?t=5406
 
 
 
@@ -492,3 +492,64 @@ The way we structure these styles, we can create separate styled components that
 have component and styles in the same file, save the files in a `styled`
 directory inside the `components` directory and pull them into the components where
 they are needed.
+
+We can extend the css for those styled components with this syntax:
+ 
+```
+const StyledButton = styled.button`
+  background-color: transparent;
+  border: 1px solid palevioletred;
+  padding: 4px 10px;
+  border-radius: 6px;
+
+  ${ props => 
+      props.primary && 
+      css`
+        background: palevioletred;
+        color: white;
+      `
+  }
+`
+```
+
+This is saying, if we have the primary prop as true, then add that extra css.
+
+To make this work, we need to pull in css, which is a function from
+styled-components.
+
+```
+import styled, { css } from 'styled-components';
+```
+
+Note that you can use SASS syntax and nest the elements:
+
+```
+  &:hover {
+    background-color: #9c274e;
+    color: white;
+  }
+```
+
+
+We can extend those styled components by passing the original component to
+the styled function. The styled function is a high order function that takes a
+component and returns another component, with the styles extended that we
+define.
+
+In the code below we are defining a TomatoButton component that takes the styles
+from StyledButton and extends them with extra styles. 
+We then use TomatoButton in our code.
+Remember we need to import styled from styled-components for this to work.
+
+```
+import styled from 'styled-components';
+
+
+const TomatoButton = styled(StyledButton)`
+  color: tomato;
+  border-color: tomato;
+`
+```
+
+
+

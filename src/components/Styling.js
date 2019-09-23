@@ -1,14 +1,13 @@
 import React from 'react';
 import { Button, UncontrolledAlert } from 'reactstrap';
+import StyledButton from './styled/StyledButton';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-  background-color: gray;
-  border: 1px solid black;
-  padding: 4px 10px;
-  color: white;
-  border-radius: 6px;
+const TomatoButton = styled(StyledButton)`
+  color: tomato;
+  border-color: tomato;
 `
+
 
 const Styling = () => {
   return (
@@ -17,6 +16,9 @@ const Styling = () => {
       <h2>Styled components styling</h2>
 
       <StyledButton>Styled component button</StyledButton>
+      <StyledButton primary>Styled component primary button</StyledButton>
+
+      <TomatoButton>Tomato button</TomatoButton>
 
 
 
