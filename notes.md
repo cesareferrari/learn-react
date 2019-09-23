@@ -2,9 +2,10 @@
 
 ## Video
 
-CSS in JS w/ Brian Kirkby
 
-https://youtu.be/0ZD0c0mdz9s?t=5406
+React Router I w/ Brian Kirkby
+
+https://youtu.be/QoeUh-LWXs8?t=4
 
 
 
@@ -552,4 +553,7 @@ const TomatoButton = styled(StyledButton)`
 ```
 
 
+## Emotion css in js
 
+https://emotion.sh/
+https://github.com/emotion-js/emotion
