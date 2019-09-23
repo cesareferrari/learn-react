@@ -443,4 +443,52 @@ And we use components like normal
 See the documentation for all the options.
 
 
+## Styled components
 
+https://www.styled-components.com
+
+Styled components is a way to create your own styles inside Javascript.
+This works differently from Reactstrap, in the way that it lets you define
+styles for components inside the Javascript file.
+
+In the example below, the identifies styled comes from the library. We call `a`
+on it, so it's like an anchor tag, followed by backticks.
+Backticks in this context are a tagged template literal.
+styled.button is a function and the arguments are passed inside the backticks.
+Inside the backticks you define the css styles
+
+```
+const StyledButton = styled.button`
+  background-color: gray;
+  border: 1px solid black;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 6px;
+`
+
+render(
+  <div>
+    <StyledButton>Styled component button</StyledButton>
+  </div>
+)
+```
+
+Inside the backticks we can also add Javascript code that performs actions, so
+these styles become dynamic.
+
+Install styled components with this syntax:
+
+```
+npm install --save styled-components
+```
+
+Then we need to import it into our file:
+
+```
+import styled from 'styled-components';
+```
+
+The way we structure these styles, we can create separate styled components that
+have component and styles in the same file, save the files in a `styled`
+directory inside the `components` directory and pull them into the components where
+they are needed.
