@@ -565,5 +565,31 @@ styled-components.
 
 ## React routing
 
+To use React routing we need to install the router library into our project:
 
+```
+npm install react-router-dom
+```
 
+and then import the router. this syntax renames BrowserRouter to simply Router
+inside our module.
+
+```
+import { BrowserRouter as Router } from 'react-router-dom';
+```
+
+We then wrap our App inside the <Router> component:
+
+```
+render () {
+  return (
+    <Router>
+
+      <div className="App">
+        <TodoList todos={this.state.todos} />
+      </div>
+
+    </Router>
+  );
+}
+```

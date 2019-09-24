@@ -8,6 +8,8 @@ import Pokemons from './components/Pokemons';
 // import Dogs from './components/Dogs';
 import Styling from './components/Styling';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 const groceries = [
   {
     id: 1,
@@ -75,31 +77,29 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
 
-      {  /* <Dogs /> */ }
+        {  /* <Dogs /> */ }
 
-        <Styling />
+          <Styling />
 
-        <Users />
+          <Users />
 
-        <h1>Shopping list</h1>
-        <GroceryList
-          groceries={this.state.groceries}
-          toggleItem={this.toggleItem}
-          clearPurchased={this.clearPurchased}
-        />
+          <h1>Shopping list</h1>
+          <GroceryList
+            groceries={this.state.groceries}
+            toggleItem={this.toggleItem}
+            clearPurchased={this.clearPurchased}
+          />
 
-        <Form addItem={this.addItem} />
+          <Form addItem={this.addItem} />
 
+          <TodoList todos={this.state.todos} />
 
-
-      <TodoList todos={this.state.todos} />
-
-
-      <Pokemons />
-
-      </div>
+          <Pokemons />
+        </div>
+      </Router>
     );
   }
 }
