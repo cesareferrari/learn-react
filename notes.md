@@ -5,7 +5,7 @@
 
 React Router I w/ Brian Kirkby
 
-https://youtu.be/QoeUh-LWXs8?t=4
+https://youtu.be/QoeUh-LWXs8?t=560
 
 
 
@@ -557,3 +557,13 @@ const TomatoButton = styled(StyledButton)`
 
 https://emotion.sh/
 https://github.com/emotion-js/emotion
+
+This is another system for adding CSS in js that is supposed to be better than
+styled-components.
+
+
+
+## React routing
+
+
+
