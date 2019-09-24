@@ -61,6 +61,15 @@ form button {
   margin: 20px auto;
 }
 
+form.remove-job {
+  background-color: transparent;
+  padding: 0;
+}
+
+form.remove-job button {
+  font-size: .7rem;
+}
+
 .purchased {
   text-decoration: line-through;
 }
@@ -123,4 +132,23 @@ form button {
 
 .dog img {
   width: 100%;
+}
+
+.jobs-container {
+  border-bottom: 1px solid gray;
+  margin-bottom: 4rem;
+}
+
+.job-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.job {
+  width: 250px;
+  padding: 1rem;
+  background-color: #f5edd7;
+  margin: 1rem;
 }

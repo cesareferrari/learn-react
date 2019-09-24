@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
 // import Dogs from './components/Dogs';
 import Styling from './components/Styling';
+import Jobs from './components/Jobs';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -79,8 +80,9 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
+          <Jobs />
 
-        {  /* <Dogs /> */ }
+          {  /* <Dogs /> */ }
 
           <Styling />
 
@@ -99,7 +101,7 @@ class App extends React.Component {
 
           <Pokemons />
         </div>
-      </Router>
+        </Router>
     );
   }
 }
