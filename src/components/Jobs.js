@@ -1,5 +1,6 @@
 import React from 'react';
 import Job from './Job';
+import JobForm from './JobForm';
 
 const jobList = [
   {
@@ -28,18 +29,25 @@ class Jobs extends React.Component {
     this.setState({jobs: jobList})
   }
 
+  addJob = job => {
+    console.log('Adding job');
+    console.log('Job:', job);
+
+    let id = Date.now();
+    let newJob = { ...job, id };
+    console.log('New job:', newJob);
+    this.setState({jobs: [...this.state.jobs, newJob]});
+  }
+
   render() {
     return (
-      <div>
+      <div className="jobs-container">
         <h2>Jobs</h2>
         <div className="job-list">
-
-        {
-          this.state.jobs.map(job => {
-            return <Job job={job} key={job.id} />
-          })
-        }
+        { this.state.jobs.map(job => <Job job={job} key={job.id} /> ) }
         </div>
+
+        <JobForm addJob={this.addJob} />
       </div>
     )
   }

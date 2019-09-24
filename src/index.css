@@ -125,13 +125,16 @@ form button {
   width: 100%;
 }
 
+.jobs-container {
+  border-bottom: 1px solid gray;
+  margin-bottom: 4rem;
+}
+
 .job-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 4rem;
-  border-bottom: 1px solid gray;
 }
 
 .job {
