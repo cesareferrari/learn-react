@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
 // import Dogs from './components/Dogs';
 import Styling from './components/Styling';
+import Jobs from './components/Jobs';
 
 const groceries = [
   {
@@ -76,6 +77,8 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
+
+      <Jobs />
 
       {  /* <Dogs /> */ }
 

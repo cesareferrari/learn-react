@@ -124,3 +124,19 @@ form button {
 .dog img {
   width: 100%;
 }
+
+.job-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid gray;
+}
+
+.job {
+  width: 250px;
+  padding: 1rem;
+  background-color: #f5edd7;
+  margin: 1rem;
+}
