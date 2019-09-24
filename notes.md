@@ -5,7 +5,7 @@
 
 React Router I w/ Brian Kirkby
 
-https://youtu.be/QoeUh-LWXs8?t=560
+https://youtu.be/QoeUh-LWXs8?t=1521
 
 
 
@@ -592,4 +592,20 @@ render () {
     </Router>
   );
 }
+```
+
+To use the router, we need to import the Route component:
+
+```
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+```
+
+This gives us a Route component that we can use to specify the component to
+render when we hit a certain path.
+In the example below, when the path is exactly /styling we render the Styling component.
+
+Routes that don't have this path in the URL won't render the Styling component.
+
+```
+<Route exact path="/styling" component={Styling} />
 ```

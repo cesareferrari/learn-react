@@ -9,7 +9,7 @@ import Pokemons from './components/Pokemons';
 import Styling from './components/Styling';
 import Jobs from './components/Jobs';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const groceries = [
   {
@@ -84,7 +84,7 @@ class App extends React.Component {
 
           {  /* <Dogs /> */ }
 
-          <Styling />
+          { /* <Styling /> */ }
 
           <Users />
 
@@ -100,6 +100,8 @@ class App extends React.Component {
           <TodoList todos={this.state.todos} />
 
           <Pokemons />
+
+          <Route exact path="/styling" component={Styling} />
         </div>
         </Router>
     );
