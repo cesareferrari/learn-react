@@ -61,6 +61,15 @@ form button {
   margin: 20px auto;
 }
 
+form.remove-job {
+  background-color: transparent;
+  padding: 0;
+}
+
+form.remove-job button {
+  font-size: .7rem;
+}
+
 .purchased {
   text-decoration: line-through;
 }

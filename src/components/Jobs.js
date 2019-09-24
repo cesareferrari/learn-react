@@ -39,12 +39,28 @@ class Jobs extends React.Component {
     this.setState({jobs: [...this.state.jobs, newJob]});
   }
 
+  remove = id => {
+    this.setState({jobs: this.state.jobs.filter(job => job.id !== id) })
+  }
+
   render() {
     return (
       <div className="jobs-container">
         <h2>Jobs</h2>
         <div className="job-list">
-        { this.state.jobs.map(job => <Job job={job} key={job.id} /> ) }
+        { this.state.jobs.map(job => {
+
+          return (
+            <Job
+              job={job}
+              key={job.id}
+              remove={this.remove}
+            />
+          )}
+
+
+          )
+        }
         </div>
 
         <JobForm addJob={this.addJob} />
