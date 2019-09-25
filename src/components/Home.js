@@ -9,6 +9,7 @@ const Home = () => {
       <p>Visit the various sections of this application:</p>
 
       <div className="sections">
+          <Link to="/store" >Store</Link>
           <Link to="/todos" >Todos</Link>
           <Link to="/groceries" >Groceries</Link>
           <Link exact to="/pokemons" >Pokemons</Link>

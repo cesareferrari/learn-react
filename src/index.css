@@ -175,3 +175,31 @@ form.remove-job button {
   padding: .6rem 1.6rem;
   margin: .5rem 1rem;
 }
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.book-card {
+  border: 1px solid gray;
+  padding: 1rem;
+  margin: 1rem;
+  width: 250px;
+}
+
+.book-card img {
+  display: block;
+  height: 200px;
+  border: 1px solid orange;
+  margin: 1rem auto;
+}
+
+.book-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: darkgray;
+  display: block;
+  text-align: right;
+}
