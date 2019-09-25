@@ -3,9 +3,9 @@
 ## Video
 
 
-React Router I w/ Brian Kirkby
+React Router II w/ Brian Kirkby
 
-https://youtu.be/QoeUh-LWXs8?t=5740
+https://youtu.be/E9ZlaCEoOoo?t=2
 
 
 
