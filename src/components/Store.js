@@ -1,6 +1,6 @@
 import React from 'react';
 import { books } from '../books';
-import Book from './Book';
+import BookCard from './BookCard';
 
 class Store extends React.Component {
   state = {
@@ -17,7 +17,7 @@ class Store extends React.Component {
       <h1>Store</h1>
 
       <div className="book-list">
-        {this.state.books.map(book => <Book book={book} key={book.id} />)}
+        {this.state.books.map(book => <BookCard book={book} key={book.id} />)}
       </div>
     </div>
     )

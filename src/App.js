@@ -10,6 +10,7 @@ import Jobs from './components/Jobs';
 import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Store from './components/Store';
+import Book from './components/Book';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -25,14 +26,17 @@ class App extends React.Component {
 
       
           <Route exact path="/" component={Home} />
-          <Route exact path="/store" component={Store} />
-          <Route exact path="/todos" component={TodoList} />
-          <Route exact path="/groceries" component={GroceryList} />
-          <Route exact path="/pokemons" component={Pokemons} />
-          <Route exact path="/jobs" component={Jobs} />
-          <Route exact path="/dogs" component={Dogs} />
-          <Route exact path="/users" component={Users} />
-          <Route exact path="/styling" component={Styling} />
+          <Route path="/todos" component={TodoList} />
+          <Route path="/groceries" component={GroceryList} />
+          <Route path="/pokemons" component={Pokemons} />
+          <Route path="/jobs" component={Jobs} />
+          <Route path="/dogs" component={Dogs} />
+          <Route path="/users" component={Users} />
+          <Route path="/styling" component={Styling} />
+
+          <Route path="/store" component={Store} />
+          <Route exact path="/books/:id" component={Book} />
+
         </div>
       </Router>
     );

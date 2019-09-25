@@ -5,7 +5,7 @@
 
 React Router I w/ Brian Kirkby
 
-https://youtu.be/QoeUh-LWXs8?t=1521
+https://youtu.be/QoeUh-LWXs8?t=5740
 
 
 
