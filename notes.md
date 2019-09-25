@@ -609,3 +609,23 @@ Routes that don't have this path in the URL won't render the Styling component.
 ```
 <Route exact path="/styling" component={Styling} />
 ```
+
+
+## Links to navigate the React app
+The ideas of Links is to be able to navigate inside the React application
+without having to reload the page.
+
+We first import the Link as part of the react-router-dom library.
+
+```
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+```
+
+Then we use it inside the application as a component:
+
+```
+<Link exact to="/pokemons" >Pokemons</Link>
+```
+
+We set the to property of the Link component to the location we want to reach.
+Link will create an a tag with the href set to the to location.

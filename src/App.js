@@ -1,109 +1,46 @@
 import React from 'react';
 import './App.css';
 import GroceryList from './components/GroceryList';
-import Form from './components/Form';
 import Users from './components/Users';
 import TodoList from './components/TodoList';
 import Pokemons from './components/Pokemons';
-// import Dogs from './components/Dogs';
+import Dogs from './components/Dogs';
 import Styling from './components/Styling';
 import Jobs from './components/Jobs';
+import Home from './components/Home';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const groceries = [
-  {
-    id: 1,
-    name: "bananas",
-    purchased: false
-  },
-  {
-    id: 2,
-    name: "apples",
-    purchased: true
-  },
-  {
-    id: 3,
-    name: "milk",
-    purchased: false
-  },
-  {
-    id: 4,
-    name: "cheese",
-    purchased: true
-  },
-]
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      groceries
-    }
-  }
-
-  toggleItem = itemId => {
-    console.log("itemId: ", itemId);
-    this.setState({
-      groceries: this.state.groceries.map(item => {
-        if (itemId === item.id) {
-          return { ...item, purchased: !item.purchased }
-        }
-
-        return item;
-      })
-    });
-  }
-
-  addItem = (event, item) => {
-    event.preventDefault();
-    const newItem = {
-      name: item,
-      id: Date.now(),
-      purchased: false
-    }
-
-    this.setState({
-      groceries: [...this.state.groceries, newItem]
-    })
-  }
-
-  clearPurchased = event => {
-    event.preventDefault();
-    this.setState({
-      groceries: this.state.groceries.filter(item => !item.purchased)
-    })
-  }
-
   render () {
     return (
       <Router>
         <div className="App">
-          <Jobs />
 
-          {  /* <Dogs /> */ }
+          <div className="navigation">
+            <Link exact to="/" >Home</Link>
+            <Link to="/todos" >Todos</Link>
+            <Link to="/groceries" >Groceries</Link>
+            <Link exact to="/pokemons" >Pokemons</Link>
+            <Link exact to="/jobs" >Jobs</Link>
+            <Link exact to="/dogs" >Dogs</Link>
+            <Link exact to="/users" >Users</Link>
+            <Link exact to="/styling" >Styling</Link>
+          </div>
 
-          { /* <Styling /> */ }
 
-          <Users />
-
-          <h1>Shopping list</h1>
-          <GroceryList
-            groceries={this.state.groceries}
-            toggleItem={this.toggleItem}
-            clearPurchased={this.clearPurchased}
-          />
-
-          <Form addItem={this.addItem} />
-
-          <TodoList todos={this.state.todos} />
-
-          <Pokemons />
-
+          <Route exact path="/" component={Home} />
+          <Route exact path="/todos" component={TodoList} />
+          <Route exact path="/groceries" component={GroceryList} />
+          <Route exact path="/pokemons" component={Pokemons} />
+          <Route exact path="/jobs" component={Jobs} />
+          <Route exact path="/dogs" component={Dogs} />
+          <Route exact path="/users" component={Users} />
           <Route exact path="/styling" component={Styling} />
         </div>
-        </Router>
+      </Router>
     );
   }
 }
