@@ -210,3 +210,8 @@ form.remove-job button {
   margin: 2rem;
   border: 1px solid orange;
 }
+
+.book-nav a {
+  display: inline-block;
+  margin: 0 1rem;
+}

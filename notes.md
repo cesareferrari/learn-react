@@ -5,7 +5,7 @@
 
 React Router II w/ Brian Kirkby
 
-https://youtu.be/E9ZlaCEoOoo?t=2
+https://youtu.be/E9ZlaCEoOoo?t=4842
 
 
 
@@ -85,6 +85,12 @@ this:
 We add the item css class, and then interpolation and inside the brackets we
 check the value of purchased and if it's true we add a space and the purchased
 class, otherwise we add an empty string.
+
+
+
+## TODO Material for articles below
+
+
 
 
 
@@ -629,3 +635,88 @@ Then we use it inside the application as a component:
 
 We set the to property of the Link component to the location we want to reach.
 Link will create an a tag with the href set to the to location.
+
+The to property of a Link component can include javascript interpolation like
+the example below:
+
+```
+<Link to={`/books/${props.book.id}`}>
+```
+
+
+
+## Pass information to rendered components on route
+
+A route renders a component, but how can we pass information (props) to this
+component?
+
+Here's what we have so far, this route renders the Store component.
+
+```
+<Route exact path="/styling" component={Store} />
+```
+
+Our goal is to be able to pass properties to the Store component. If instead of
+usign component on the route we use render, we can pass a function that returns
+a component.
+
+```
+<Route path="/store" render={() => <Store />} />
+```
+
+When we use Route in this way, we can pass to the component properties coming
+from the state, like books in this case:
+
+```
+<Route path="/store" render={() => <Store books={this.state.books} />} />
+```
+
+When we use Route with the component syntax, Route also passes some important properties like history, location and match by default.
+
+But using Route with render  will not pass down those properties unless we do it
+manually.
+These properties are passed down by the props, so we can pass the props to the
+anonymous component created by Route and add them inside the component with the
+spread operator.
+
+```
+<Route
+  path="/store"
+  render={props => <Store {...props} books={this.state.books} />}
+/>
+```
+
+
+
+## Nested routes
+
+We can use nested routes inside our component, if we have a Book component we
+can render different children based on the path.
+If we go to the regular book/id path we render the description.
+If we go to 'book/id/shipping' we render shipping information instead.
+
+```
+<nav className="book-nav">
+  <Link to={`/books/${book.id}`}>Description</Link>  
+  <Link to={`/books/${book.id}/shipping`}>Shipping</Link>
+</nav>
+
+
+  <Route
+    exact={true}
+    path="/books/:id"
+    render={props => <BookDescription {...props} book={book} />}
+  />
+
+  <Route
+    path="/books/:id/shipping"
+    render={props => <BookShipping {...props} book={book} />}
+  />
+```
+
+The route in the App component need not to have the exact property.
+When it did, the shipping component would not display.
+
+```
+<Route path="/books/:id" component={Book} /> 
+```

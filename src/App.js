@@ -14,9 +14,18 @@ import Book from './components/Book';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { books } from './books';
 
 
 class App extends React.Component {
+  state = {
+    books 
+  }
+
+//  componentDidMount() {
+//    this.setState({books: [...books]})
+//  }
+
   render () {
     return (
       <Router>
@@ -25,7 +34,7 @@ class App extends React.Component {
           <Navigation />
 
       
-          <Route exact path="/" component={Home} />
+          <Route exact={true} path="/" component={Home} />
           <Route path="/todos" component={TodoList} />
           <Route path="/groceries" component={GroceryList} />
           <Route path="/pokemons" component={Pokemons} />
@@ -34,8 +43,12 @@ class App extends React.Component {
           <Route path="/users" component={Users} />
           <Route path="/styling" component={Styling} />
 
-          <Route path="/store" component={Store} />
-          <Route exact path="/books/:id" component={Book} />
+          <Route
+            path="/store"
+            render={props => <Store {...props} books={this.state.books} />}
+          />
+
+          <Route path="/books/:id" component={Book} /> 
 
         </div>
       </Router>
