@@ -2,12 +2,8 @@
 
 ## Video
 
-
-React Router II w/ Brian Kirkby
-
-https://youtu.be/E9ZlaCEoOoo?t=4842
-
-
+HTTP/AJAX I
+https://youtu.be/DrdhoE1sB8o?t=1
 
 
 
@@ -728,4 +724,41 @@ When it did, the shipping component would not display.
 
 ```
 <Route path="/books/:id" component={Book} /> 
+```
+
+
+## NavLink
+
+NavLink adds a class name of active to the one that is currently being used.
+active is used for styling purposes so we know which link is active in a list of
+links.
+
+```
+<NavLink exact to={`/books/${book.id}`}>Description</NavLink>  
+<NavLink exact to={`/books/${book.id}/shipping`}>Shipping</NavLink>
+```
+
+With NavLink we can use the exact property in the same way as Route. It helps us
+match a route exactly so it adds the active class correctly.
+
+
+## History
+
+Route has an history property that helps us navigate programmatically between
+pages. The history matches the history property of the browser, and its' similar
+to an array that we can add items by pushing it.
+
+In this example we have a button and when we click on the button we want to push
+onto the history the new location. We add an onClick event listener and run
+the routeToShop() function when the button is clicked.
+
+```
+<button onClick={routeToShop}>Shop now</button>
+```
+
+```
+const routeToShop = e => {
+  e.preventDefault();
+  props.history.push('/store')
+}
 ```

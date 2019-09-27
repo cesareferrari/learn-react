@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
-const Home = () => {
+const Home = props => {
+
+  const routeToShop = e => {
+    e.preventDefault();
+    props.history.push('/store')
+  }
+
   return (
     <div>
       <h1>Welcome to the Learn React application</h1>
@@ -18,6 +25,9 @@ const Home = () => {
           <Link exact to="/users" >Users</Link>
           <Link exact to="/styling" >Styling</Link>
       </div>
+
+
+      <Button onClick={routeToShop}>Shop now</Button>
     </div>
   )
 }

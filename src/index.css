@@ -215,3 +215,8 @@ form.remove-job button {
   display: inline-block;
   margin: 0 1rem;
 }
+
+.active {
+  font-weight: bold;
+  color: black;
+}

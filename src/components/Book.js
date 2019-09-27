@@ -1,6 +1,6 @@
 import React from 'react';
 import { books } from '../books';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import BookDescription from './BookDescription';
 import BookShipping from './BookShipping';
 
@@ -15,8 +15,8 @@ const Book = props => {
 
 
     <nav className="book-nav">
-      <Link to={`/books/${book.id}`}>Description</Link>  
-      <Link to={`/books/${book.id}/shipping`}>Shipping</Link>
+      <NavLink exact to={`/books/${book.id}`}>Description</NavLink>  
+      <NavLink exact to={`/books/${book.id}/shipping`}>Shipping</NavLink>
     </nav>
 
 
