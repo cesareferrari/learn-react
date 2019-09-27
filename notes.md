@@ -428,6 +428,14 @@ npm install --save reactstrap
 npm install --save bootstrap
 ```
 
+There is no need to use --save option anymore. It was used to update
+package.json, but this is the default behavior now, so there is no need to add
+that.
+```
+npm install reactstrap
+npm install bootstrap
+```
+
 Include Bootstrap in index.js file:
 
 ```
