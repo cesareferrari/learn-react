@@ -209,7 +209,6 @@ Typechecking With PropTypes
 https://reactjs.org/docs/typechecking-with-proptypes.html
 
 
-## >>>> TODO Material for articles below
 
 Checking that the pokemons prop is indeed an array is helpful, but PropTypes
 goes deeper. It can check the content of the array and make sure it's an
@@ -257,6 +256,14 @@ Pokemon.propTypes = {
 }
 ```
 
+
+
+
+
+
+
+
+
 ## React lifecycle methods
 
 componentDidMount is placed inside a class component. It can't be placed inside
@@ -289,6 +296,12 @@ pokemonData is what is returned by the external API call.
     this.setState({pokemons: pokemonData})
   }
 ```
+
+
+
+## >>>> TODO Material for articles below
+
+
 
 The next lifecycle method that is called is componentDidUpdate().
 componentDidUpdate takes as the first two arguments the previous props and the previous state.
