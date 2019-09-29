@@ -3,7 +3,7 @@
 ## Video
 
 HTTP/AJAX I
-https://youtu.be/DrdhoE1sB8o?t=1
+https://youtu.be/DrdhoE1sB8o?t=450
 
 
 
@@ -775,3 +775,6 @@ const routeToShop = e => {
   props.history.push('/store')
 }
 ```
+
+
+## How to grab data from external API
