@@ -299,7 +299,6 @@ pokemonData is what is returned by the external API call.
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -325,6 +324,12 @@ An example of when to use componentDidUpdate() is to call an external API if the
 previous state and the new state are different. If not, it's not necessary to
 call the API. The call of the API would be inside a condition that checks if the
 two states have changed.
+
+
+## >>>> TODO Material for articles below
+
+
+
 
 
 
