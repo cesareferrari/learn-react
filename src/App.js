@@ -21,19 +21,27 @@ import axios from 'axios';
 class App extends React.Component {
   state = {
     books,
-    items: []
+    items: [],
+    errorMessage: ''
   }
 
-componentDidMount() {
-  axios.get('http://localhost:3333/items')
-    .then(response => this.setState({items: response.data}))
-    .catch(err => console.log(err))
-}
+  componentDidMount() {
+    axios.get('http://localhost:3333/ites')
+      .then(response => this.setState({items: response.data}))
+      .catch(err => {
+        console.log(err);
+        this.setState({errorMessage: 'error getting item list'})
+      })
+  }
 
   render () {
     return (
       <Router>
         <div className="App">
+
+      { this.state.errorMessage &&
+          <h3 className="error">error {this.state.errorMessage}</h3>
+      }
 
           <Navigation />
 

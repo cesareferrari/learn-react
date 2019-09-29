@@ -3,3 +3,9 @@
   margin: auto;
   width: 80%;
 }
+
+.error {
+  background-color: lightyellow;
+  border: 1px solid red;
+  padding: 1rem;
+}

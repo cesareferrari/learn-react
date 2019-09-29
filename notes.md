@@ -2,8 +2,9 @@
 
 ## Video
 
-HTTP/AJAX I
-https://youtu.be/DrdhoE1sB8o?t=2321
+HTTP/AJAX II
+
+https://www.youtube.com/watch?v=I4XcgsHvats&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=27&t=0s
 
 
 
@@ -829,7 +830,7 @@ track and hard to read and prone to bugs.
 
 Promises solve this callback hell problem.
 
-Axios
+### Axios
 
 Axios is a way to make http requests and to deal with responses.
 
@@ -849,12 +850,101 @@ componentDidMount() {
 ```
 
 Axios returns back a promise and promises when they are successfull call the
-then() method
+then() method passing in the response.
+If errors are returned, it calls the catch method passing in the error.
+
+```
+componentDidMount() {
+  axios.get('http://localhost:3333/items')
+    .then(response => this.setState({items: response.data}))
+    .catch(err => console.log(err))
+}
+```
+
+
+### Promises
+
+```
+function makePromise(isGood) {
+  return new Promise((resolve, reject) => {
+    if (isGood) {
+      resolve('all good');
+    } else {
+      reject('all bad');
+    }
+  });
+}
+
+let p = makePromist(true);
+
+console.log(p); // all good
+```
+This promise has been resolved so it prints all good because isGood is true.
+
+
+The promise below is pending because the function passed in the promise definition has not called resolve or reject.
+
+```
+console.log(new Promise(() => {}));
+// Promise { <pending> }
+```
+
+If the promise is not resolved yet, it sits there in a pending state. That could
+happen if you are making an external API call and the call takes a while to
+resolve.
+
+The way to get the values out of a promise is to use the .then syntax.
+
+```
+p = makePromise(true);
+console.log(p); // Promise { 'all good' }
+
+
+p = makePromise(false);
+console.log(p); // Promise { <rejected> 'all bad' }
+
+
+p
+  .then(goodValue => console.log(goodValue)) // all good
+  .catch(badValue => console.log(badValue))  // all bad
+```
+
+If we add more .then, the result of a promise is wrapped inside another promise
+and sent to the next .then method.
 
 
 
+## Display error message
 
+Initialize state with errorMessage as an empty string.
 
+```
+  state = {
+    books,
+    items: [],
+    errorMessage: ''
+  }
+```
 
+Inside componentDidMount, in the catch clause, if there is an error update the
+state with the error message.
 
+```
+componentDidMount() {
+  axios.get('http://localhost:3333/items')
+    .then(response => this.setState({items: response.data}))
+    .catch(err => {
+      console.log(err);
+      this.setState({errorMessage: err})
+    })
+}
+```
 
+Create a condition where if there is an error message it displays it with the
+shortcut operator && .
+
+```
+{ this.state.errorMessage &&
+    <h3 className="error">error {this.state.errorMessage}</h3>
+}
+```
