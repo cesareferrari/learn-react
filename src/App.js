@@ -15,16 +15,20 @@ import Book from './components/Book';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { books } from './books';
+import axios from 'axios';
 
 
 class App extends React.Component {
   state = {
-    books 
+    books,
+    items: []
   }
 
-//  componentDidMount() {
-//    this.setState({books: [...books]})
-//  }
+componentDidMount() {
+  axios.get('http://localhost:3333/items')
+    .then(response => this.setState({items: response.data}))
+    .catch(err => console.log(err))
+}
 
   render () {
     return (

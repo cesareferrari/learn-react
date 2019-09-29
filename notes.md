@@ -3,7 +3,7 @@
 ## Video
 
 HTTP/AJAX I
-https://youtu.be/DrdhoE1sB8o?t=450
+https://youtu.be/DrdhoE1sB8o?t=2321
 
 
 
@@ -778,3 +778,78 @@ const routeToShop = e => {
 
 
 ## How to grab data from external API
+Promises are a way for the browser to defer the execution of something in an
+asyncronous fashion so that the UI doesn't get locked up.
+
+This is how normally functions work:
+
+```
+function howdy() {
+  return 'hi'
+}
+
+let response = howdy();
+
+console.log(response);
+```
+
+The problem with this is when what we are doing inside a function takes a lot of
+time, like calling an API server or doing some work that takes a lot of time.
+
+The let expression will wait until the function is finished. So it will make the
+application not responsive to the user, until the function is done.
+
+
+A way to solve this problem is with a callback.
+In the code below we define howdy to take a callback.
+We move the code that takes a long time to execute inside the callback.
+
+At this point, howdy gets called and in turn it calls the callback.
+howdy returns immediately, so it doesn't lock up the interface.
+The work that takes time is delegated to the callback, and when the callback is
+finished it will return its result and it's put into the UI.
+
+```
+function howdy(callback) {
+  callback('hi');
+}
+
+let cb = greetResponse => console.log(greetResponse);
+
+howdy(cb);
+```
+
+This works but if we have a series of callbacks it becomes complicated to keep
+track and hard to read and prone to bugs.
+
+Promises solve this callback hell problem.
+
+Axios
+
+Axios is a way to make http requests and to deal with responses.
+
+First we import axios at the top of the file
+
+```
+import axios from 'axios';
+```
+
+then we use it inside componentDidMount()
+
+```
+componentDidMount() {
+  axios.get('http://localhost:3333')
+    
+}
+```
+
+Axios returns back a promise and promises when they are successfull call the
+then() method
+
+
+
+
+
+
+
+
