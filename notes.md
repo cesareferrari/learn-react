@@ -681,7 +681,7 @@ Here's what we have so far, this route renders the Store component.
 ```
 
 Our goal is to be able to pass properties to the Store component. If instead of
-usign component on the route we use render, we can pass a function that returns
+using component on the route we use render, we can pass a function that returns
 a component.
 
 ```

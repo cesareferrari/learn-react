@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './Item.js';
+import ItemCard from './ItemCard.js';
 
 class Items extends React.Component {
 
@@ -7,7 +7,7 @@ class Items extends React.Component {
     return (
       <div>
         <h1>Items</h1>
-        { this.props.items.map(item => <Item item={item} /> ) }
+        { this.props.items.map(item => <ItemCard item={item} key={item.id} /> ) }
       </div>
     )
   }

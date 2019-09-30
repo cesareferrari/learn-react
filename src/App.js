@@ -12,6 +12,7 @@ import Navigation from './components/Navigation';
 import Store from './components/Store';
 import Book from './components/Book';
 import Items from './components/Items';
+import Item from './components/Item';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -57,6 +58,7 @@ class App extends React.Component {
           <Route path="/styling" component={Styling} />
 
           <Route
+            exact
             path="/items"
             render={props => <Items {...props} items={this.state.items} />}
           />
@@ -67,6 +69,7 @@ class App extends React.Component {
           />
 
           <Route path="/books/:id" component={Book} /> 
+          <Route path="/items/:id" render={props => <Item {...props} items={this.state.items} />} />
 
         </div>
       </Router>
