@@ -326,7 +326,9 @@ call the API. The call of the API would be inside a condition that checks if the
 two states have changed.
 
 
-## >>>> TODO Material for articles below
+
+
+
 
 
 
@@ -370,6 +372,14 @@ componentDidMount() {
     .catch(err => console.log('Error:', err));
 }
 ```
+
+
+
+
+
+## >>>> TODO Material for articles below
+
+
 
 
 
