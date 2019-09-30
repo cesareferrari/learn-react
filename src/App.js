@@ -11,6 +11,8 @@ import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Store from './components/Store';
 import Book from './components/Book';
+import Items from './components/Items';
+import Item from './components/Item';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -26,7 +28,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3333/ites')
+    axios.get('http://localhost:3333/items')
       .then(response => this.setState({items: response.data}))
       .catch(err => {
         console.log('Axios error:', err);
@@ -54,11 +56,18 @@ class App extends React.Component {
           <Route path="/styling" component={Styling} />
 
           <Route
+            exact
+            path="/items"
+            render={props => <Items {...props} items={this.state.items} />}
+          />
+
+          <Route
             path="/store"
             render={props => <Store {...props} books={this.state.books} />}
           />
 
           <Route path="/books/:id" component={Book} /> 
+          <Route path="/items/:id" render={props => <Item {...props} items={this.state.items} />} />
 
         </div>
       </Router>
