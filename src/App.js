@@ -22,15 +22,15 @@ class App extends React.Component {
   state = {
     books,
     items: [],
-    errorMessage: ''
+    errorMessage: '' 
   }
 
   componentDidMount() {
     axios.get('http://localhost:3333/ites')
       .then(response => this.setState({items: response.data}))
       .catch(err => {
-        console.log(err);
-        this.setState({errorMessage: 'error getting item list'})
+        console.log('Axios error:', err);
+        this.setState({errorMessage: err.message});
       })
   }
 
@@ -39,9 +39,7 @@ class App extends React.Component {
       <Router>
         <div className="App">
 
-      { this.state.errorMessage &&
-          <h3 className="error">error {this.state.errorMessage}</h3>
-      }
+      { this.state.errorMessage && <h3 className="error"> { this.state.errorMessage } </h3> }
 
           <Navigation />
 

@@ -1,10 +1,9 @@
-# Notes
+# No1tes
 
 ## Video
 
 HTTP/AJAX II
-
-https://www.youtube.com/watch?v=I4XcgsHvats&list=PLWX9jswdDQ0V6vmoXMuB_ky3w6KHA6i8F&index=27&t=0s
+https://youtu.be/I4XcgsHvats?t=1
 
 
 
@@ -935,7 +934,7 @@ componentDidMount() {
     .then(response => this.setState({items: response.data}))
     .catch(err => {
       console.log(err);
-      this.setState({errorMessage: err})
+      this.setState({errorMessage: err.message});
     })
 }
 ```
@@ -944,7 +943,5 @@ Create a condition where if there is an error message it displays it with the
 shortcut operator && .
 
 ```
-{ this.state.errorMessage &&
-    <h3 className="error">error {this.state.errorMessage}</h3>
-}
+{ this.state.errorMessage && <h3 className="error"> { this.state.errorMessage } </h3> }
 ```
