@@ -377,7 +377,6 @@ componentDidMount() {
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -434,6 +433,11 @@ The final result is 2 * 10 = 20
 ```
 multiply(2)(10)  // 20
 ```
+
+
+## >>>> TODO Material for articles below
+
+
 
 
 
