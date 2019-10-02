@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 class Item extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class Item extends React.Component {
     return(
       <div>
         <h2>{ item.name }</h2>
-      <img src={item.imageUrl} />
+        <img src={item.imageUrl} alt={item.name} />
         <p>{item.description}</p>
       </div>
     )
@@ -25,14 +24,3 @@ class Item extends React.Component {
 
 export default Item;
 
-
-{/*
-    
-name
-id
-price
-imageUrl:
-description:
-shipping:
-
-*/}

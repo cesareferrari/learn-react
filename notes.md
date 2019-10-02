@@ -3,7 +3,7 @@
 ## Video
 
 HTTP/AJAX II
-https://youtu.be/I4XcgsHvats?t=1
+https://youtu.be/I4XcgsHvats?t=1845
 
 
 
@@ -487,6 +487,9 @@ And we use components like normal
 See the documentation for all the options.
 
 
+
+
+
 ## Styled components
 
 https://www.styled-components.com
@@ -958,4 +961,71 @@ shortcut operator && .
 
 ```
 { this.state.errorMessage && <h3 className="error"> { this.state.errorMessage } </h3> }
+```
+
+
+
+## Create a new item with axios
+
+Now that we display the items we need a way to add a new item to the list.
+We need to add a form and to display the form we need to add a route to the form
+view in the App.js
+
+
+```
+/* App.js*/
+
+<Route
+  path="/item-form"
+  render={props => <ItemForm {...props} />}
+/>
+```
+The path is /item-form and it will render the ItemForm component, passing the
+props like history, match, etc.
+
+In the form we add the state as an instance variable
+
+```
+class ItemForm extends React.Component {
+  state = {
+    item: this.props.activeItem || {
+        name: '',
+        price: '',
+        imageUrl: '',
+        description: '',
+        shipping: ''
+      }
+  }
+}
+```
+
+The item in question comes from the props and will be named activeItem.
+In case we don't have activeItem we create a default object with properties
+initialized to empty strings.
+
+Change handler:
+
+```
+  changeHandler = e => {
+    e.persist();
+    let value = e.target.value;
+
+    this.setState(prevState => ({
+        item: {...prevState.item, [e.target.name]: value}
+    }))
+  };
+```
+
+Form: 
+
+```
+  <form onSubmit={this.handleSubmit}>
+    <input
+      type="text"
+      name="name"
+      onChange={this.changeHandler}
+      placeholder="Name"
+      value={this.state.item.name}
+    />
+  </form>
 ```

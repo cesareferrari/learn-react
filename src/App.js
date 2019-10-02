@@ -13,6 +13,7 @@ import Store from './components/Store';
 import Book from './components/Book';
 import Items from './components/Items';
 import Item from './components/Item';
+import ItemForm from './components/ItemForm';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -71,7 +72,7 @@ class App extends React.Component {
 
           <Route
             path="/item-form"
-            render={props => <ItemForm {...props}>}
+            render={props => <ItemForm {...props} />}
           />
 
         </div>
