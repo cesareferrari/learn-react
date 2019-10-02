@@ -435,7 +435,6 @@ multiply(2)(10)  // 20
 ```
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -487,6 +486,8 @@ And we use components like normal
 See the documentation for all the options.
 
 
+
+## >>>> TODO Material for articles below
 
 
 
