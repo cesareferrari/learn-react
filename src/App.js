@@ -69,6 +69,11 @@ class App extends React.Component {
           <Route path="/books/:id" component={Book} /> 
           <Route path="/items/:id" render={props => <Item {...props} items={this.state.items} />} />
 
+          <Route
+            path="/item-form"
+            render={props => <ItemForm {...props}>}
+          />
+
         </div>
       </Router>
     );
