@@ -32,6 +32,40 @@ class ItemForm extends React.Component {
             placeholder="Name"
             value={this.state.item.name}
           />
+
+          <input
+            type="text"
+            name="price"
+            onChange={this.changeHandler}
+            placeholder="Price"
+            value={this.state.item.price}
+          />
+
+          <input
+            type="text"
+            name="imageUrl"
+            onChange={this.changeHandler}
+            placeholder="Image URL"
+            value={this.state.item.imageUrl}
+          />
+
+          <input
+            type="text"
+            name="description"
+            onChange={this.changeHandler}
+            placeholder="Description"
+            value={this.state.item.description}
+          />
+
+          <input
+            type="text"
+            name="shipping"
+            onChange={this.changeHandler}
+            placeholder="Shipping"
+            value={this.state.item.shipping}
+          />
+
+          <button>Add new item</button>
         </form>
       </div>
     )

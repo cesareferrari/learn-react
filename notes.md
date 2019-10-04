@@ -1,9 +1,9 @@
-# No1tes
+# Notes
 
 ## Video
 
 HTTP/AJAX II
-https://youtu.be/I4XcgsHvats?t=1845
+https://youtu.be/I4XcgsHvats?t=2228
 
 
 
@@ -611,7 +611,6 @@ styled-components.
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -663,6 +662,14 @@ Routes that don't have this path in the URL won't render the Styling component.
 ```
 <Route exact path="/styling" component={Styling} />
 ```
+
+
+
+
+
+## >>>> TODO Material for articles below
+
+
 
 
 ## Links to navigate the React app
