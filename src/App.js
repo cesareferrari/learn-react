@@ -16,9 +16,11 @@ import Item from './components/Item';
 import ItemForm from './components/ItemForm';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { books } from './books';
 import axios from 'axios';
+
 
 
 class App extends React.Component {
@@ -35,6 +37,17 @@ class App extends React.Component {
         console.log('Axios error:', err);
         this.setState({errorMessage: err.message});
       })
+  }
+
+
+  addItem = (e, item) => {
+    e.preventDefault();
+    axios.post('http://localhost:3333/items', item)
+      .then(res => {
+        this.setState({items: res.data});
+        this.history.push('/items');
+      })
+      .catch(err => console.log(err))
   }
 
   render () {
@@ -72,7 +85,7 @@ class App extends React.Component {
 
           <Route
             path="/item-form"
-            render={props => <ItemForm {...props} />}
+            render={props => <ItemForm {...props} addItem={this.addItem} />}
           />
 
         </div>
@@ -81,4 +94,7 @@ class App extends React.Component {
   }
 }
 
+const AppWithRouter = withRouter(App);
+
 export default App;
+// export default AppWithRouter;

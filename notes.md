@@ -3,7 +3,7 @@
 ## Video
 
 HTTP/AJAX II
-https://youtu.be/I4XcgsHvats?t=2228
+https://youtu.be/I4XcgsHvats?t=5655
 
 
 
@@ -1049,3 +1049,73 @@ Form:
     />
   </form>
 ```
+
+When form is submitted we call the handleSubmit function:
+
+```
+  handleSubmit = e => {
+    this.props.addItem(e, this.state.item);
+    this.setState({
+      name: '',
+      price: '',
+      imageUrl: '',
+      description: '',
+      shipping: ''
+    })
+  }
+```
+
+The handleSubmit function calls this.props.addItem, which is passed down
+throught the props. addItem lives in the parent component of the form component
+because it needs to add an item to the list, which is in the parent component
+state. The parent component is App in our case.
+
+The addItem function in the App component:
+
+```
+// App.js
+
+  addItem = (e, item) => {
+    e.preventDefault();
+    axios.post('http://localhost:3333/items', item)
+      .then(res => {
+        this.setState({items: res.data})
+      })
+      .catch(err => console.log(err))
+  }
+```
+
+Now we need to add addItem prop to the route so it gets passed to ItemForm via props:
+
+```
+<Route
+  path="/item-form"
+  render={props => <ItemForm {...props} addItem={this.addItem} />}
+/>
+```
+
+Now we can add items but we also need to redirect to the items page after the
+addition. 
+To do that we need to use the history prop to redirect the page.
+The history prop is available through Route and App (where we define our items)
+is not wrapped in a Route
+
+(Note: In my application it is wrapped in a Route, so maybe
+I don't need this next part, or it may give me an error).
+
+To wrap App in a Route we need a higher order component.
+We import it from the library
+
+```
+import { withRouter } from 'react-router-dom';
+```
+
+Then we create a new component, that is the result to applying the withRouter
+component to App.
+We add this at the end of App, before the export directive.
+
+```
+const AppWithRouter = withRouter(App);
+```
+
+Now the App has been wrapped with a router, so addItem will have access to history prop.
