@@ -20,6 +20,18 @@ class ItemForm extends React.Component {
     }))
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addItem(e, this.state.item);
+    this.setState({
+      name: '',
+      price: '',
+      imageUrl: '',
+      description: '',
+      shipping: ''
+    })
+  }
+
   render() {
     return (
       <div>
