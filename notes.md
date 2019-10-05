@@ -667,7 +667,6 @@ Routes that don't have this path in the URL won't render the Styling component.
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -697,6 +696,12 @@ the example below:
 ```
 <Link to={`/books/${props.book.id}`}>
 ```
+
+
+
+
+## >>>> TODO Material for articles below
+
 
 
 
