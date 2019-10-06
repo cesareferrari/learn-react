@@ -700,7 +700,6 @@ the example below:
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -745,6 +744,12 @@ spread operator.
   render={props => <Store {...props} books={this.state.books} />}
 />
 ```
+
+
+
+
+
+## >>>> TODO Material for articles below
 
 
 
