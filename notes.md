@@ -749,7 +749,6 @@ spread operator.
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -824,7 +823,17 @@ const routeToShop = e => {
 ```
 
 
+
+
+
+
+
+
+
+
+
 ## How to grab data from external API
+
 Promises are a way for the browser to defer the execution of something in an
 asyncronous fashion so that the UI doesn't get locked up.
 
@@ -871,6 +880,16 @@ track and hard to read and prone to bugs.
 
 Promises solve this callback hell problem.
 
+
+
+
+
+## >>>> TODO Material for articles below
+
+
+
+
+
 ### Axios
 
 Axios is a way to make http requests and to deal with responses.
@@ -886,7 +905,6 @@ then we use it inside componentDidMount()
 ```
 componentDidMount() {
   axios.get('http://localhost:3333')
-    
 }
 ```
 
