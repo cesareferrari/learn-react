@@ -882,45 +882,6 @@ Promises solve this callback hell problem.
 
 
 
-
-
-## >>>> TODO Material for articles below
-
-
-
-
-
-### Axios
-
-Axios is a way to make http requests and to deal with responses.
-
-First we import axios at the top of the file
-
-```
-import axios from 'axios';
-```
-
-then we use it inside componentDidMount()
-
-```
-componentDidMount() {
-  axios.get('http://localhost:3333')
-}
-```
-
-Axios returns back a promise and promises when they are successfull call the
-then() method passing in the response.
-If errors are returned, it calls the catch method passing in the error.
-
-```
-componentDidMount() {
-  axios.get('http://localhost:3333/items')
-    .then(response => this.setState({items: response.data}))
-    .catch(err => console.log(err))
-}
-```
-
-
 ### Promises
 
 ```
@@ -971,6 +932,41 @@ p
 If we add more .then, the result of a promise is wrapped inside another promise
 and sent to the next .then method.
 
+
+
+
+## >>>> TODO Material for articles below
+
+o
+### Axios
+
+Axios is a way to make http requests and to deal with responses.
+
+First we import axios at the top of the file
+
+```
+import axios from 'axios';
+```
+
+then we use it inside componentDidMount()
+
+```
+componentDidMount() {
+  axios.get('http://localhost:3333')
+}
+```
+
+Axios returns back a promise and promises when they are successfull call the
+then() method passing in the response.
+If errors are returned, it calls the catch method passing in the error.
+
+```
+componentDidMount() {
+  axios.get('http://localhost:3333/items')
+    .then(response => this.setState({items: response.data}))
+    .catch(err => console.log(err))
+}
+```
 
 
 ## Display error message
