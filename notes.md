@@ -935,9 +935,8 @@ and sent to the next .then method.
 
 
 
-## >>>> TODO Material for articles below
 
-o
+
 ### Axios
 
 Axios is a way to make http requests and to deal with responses.
@@ -967,6 +966,13 @@ componentDidMount() {
     .catch(err => console.log(err))
 }
 ```
+
+
+
+
+## >>>> TODO Material for articles below
+
+
 
 
 ## Display error message
