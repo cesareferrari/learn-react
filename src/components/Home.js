@@ -16,6 +16,7 @@ const Home = props => {
       <p>Visit the various sections of this application:</p>
 
       <div className="sections">
+          <Link to="/items" >Items</Link>
           <Link to="/store" >Store</Link>
           <Link to="/todos" >Todos</Link>
           <Link to="/groceries" >Groceries</Link>
