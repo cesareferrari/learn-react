@@ -970,7 +970,6 @@ componentDidMount() {
 
 
 
-## >>>> TODO Material for articles below
 
 
 
@@ -1007,6 +1006,11 @@ shortcut operator && .
 ```
 { this.state.errorMessage && <h3 className="error"> { this.state.errorMessage } </h3> }
 ```
+
+
+## >>>> TODO Material for articles below
+
+
 
 
 
